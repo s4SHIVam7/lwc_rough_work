@@ -33,7 +33,7 @@ Child to Parent Communication
            </div>
       </template>
      ```
-     - ```<c-hello-world > </c-hello-world>``` is nothing but including child component in parrent component.
+     - ```<c-hello-world> </c-hello-world>``` is nothing but including child component in parrent component.
 
 4. **ScreenShot**:
    - ![image](https://github.com/s4SHIVam7/lwc_rough_work/assets/60181328/c1d9a08c-3cc6-40df-9384-9f65c0305684)
