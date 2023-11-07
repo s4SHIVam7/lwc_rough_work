@@ -38,6 +38,17 @@ Child to Parent Communication
 
 4. **ScreenShot**:
    - ![image](https://github.com/s4SHIVam7/lwc_rough_work/assets/60181328/c1d9a08c-3cc6-40df-9384-9f65c0305684)
+
+  
+   We can change name via attribute also, take a example
+      ````
+      <div class="slds-p-top_large">
+			<c-hello-world first-name="Web" class="slds-text-heading_medium" ></c-hello-world>
+		</div>
+here, we changed name using first-name attribute .
+![image](https://github.com/s4SHIVam7/lwc_rough_work/assets/60181328/b26b8253-971f-4590-9cdf-ed32100cb241)
+
+
   
 ## 2
 Alert(not a toast) in lwc
