@@ -51,7 +51,7 @@ here, we changed name using first-name attribute .
 
   
 ## 2
-Alert(not a toast) in lwc
+Alert (not a toast) in lwc
 - html
 ```
 <template>
@@ -80,3 +80,126 @@ export default class MyApp extends LightningElement {
 - Screenshot
 ![image](https://github.com/s4SHIVam7/lwc_rough_work/assets/60181328/ac14ebd8-2c90-4364-a180-63ba782d70a9)
 
+## 3
+Suppose we have too many lightning input/button and you want onchange Event Handler on each lightning/button, then you we don't need to write seperate Event Handler for each lightning input/button.
+we can use only one Event Handler method in js for thta you need to use name attribute for lightning-input/button in html.
+
+ex.
+
+**Unenhanced code.**
+
+html
+```
+<div class="slds-p-around_medium lgc-bg">
+	<lightning-input
+        	type="text"
+        	label="Enter Name 1:"
+        	value={First_Name}
+        	onchange={handle_First_Name_Change}
+      ></lightning-input>
+</div>
+<div class="slds-p-around_medium lgc-bg">
+      <lightning-input
+		type="text"
+        	label="Enter Name 2:"
+        	value={Second_Name}
+        	onchange={handle_Second_Name_Change}
+      ></lightning-input>
+</div>
+<div class="slds-p-around_medium lgc-bg">
+      <lightning-input
+        	type="text"
+        	label="Enter Name 3:"
+        	value={Third_Name}
+        	onchange={handle_Third_Name_Change}
+      ></lightning-input>
+</div>
+<div class="slds-p-around_medium lgc-bg">
+      <lightning-input
+        	type="text"
+        	label="Enter Name 4:"
+        	value={Forth_Name}
+        	onchange={handle_Forth_Name_Change}
+      ></lightning-input>
+</div>
+```
+
+JS
+```
+handle_First_Name_Change(event) {
+	this.insertFirstName = event.detail.value;
+}
+handle_Second_Name_Change(event) {
+	this.insertSecondName = event.detail.value;
+}
+handle_Third_Name_Change(event) {
+	this.insertThirdName = event.detail.value;
+}
+handle_Forth_Name_Change(event) {
+	this.insertFourName = event.detail.value;
+}
+
+```
+
+**Enhanced code.**
+
+html
+```
+<div class="slds-p-around_medium lgc-bg">
+	<lightning-input
+		name="First_Name"
+        	type="text"
+        	label="Enter Name 1:"
+        	value={First_Name}
+        	onchange={nameHandler}
+      ></lightning-input>
+</div>
+<div class="slds-p-around_medium lgc-bg">
+      <lightning-input
+		name="Second_Name"
+		type="text"
+        	label="Enter Name 2:"
+        	value={Second_Name}
+        	onchange={nameHandler}
+      ></lightning-input>
+</div>
+<div class="slds-p-around_medium lgc-bg">
+      <lightning-input
+		name="Third_Name"
+        	type="text"
+        	label="Enter Name 3:"
+        	value={Third_Name}
+        	onchange={nameHandler}
+      ></lightning-input>
+</div>
+<div class="slds-p-around_medium lgc-bg">
+      <lightning-input
+		name="Forth_Name"
+        	type="text"
+        	label="Enter Name 4:"
+        	value={Forth_Name}
+        	onchange={nameHandler}
+      ></lightning-input>
+</div>
+```
+JS
+```
+nameHandler(event) {
+
+	let {name, value}=event.target;
+
+	if(name === 'First_Name') {
+            this.insertFirstName = event.detail.value;
+        }
+	else if(name === 'Second_Name) {
+            this.insertSecondName = event.detail.value;
+        }
+	else if(name === 'Third_Name) {
+            this.insertThirdName = event.detail.value;
+        }
+	else if(name === 'Forth_Name) {
+            this.insertForthName = event.detail.value;
+        }
+}
+
+```
