@@ -78,7 +78,6 @@ export default class MyApp extends LightningElement {
 }
 ```
 - Screenshot
-![image](https://github.com/s4SHIVam7/lwc_rough_work/assets/60181328/ac14ebd8-2c90-4364-a180-63ba782d70a9)
 
 ## 3
 Suppose we have too many lightning input/button and you want onchange Event Handler on each lightning/button, then you we don't need to write seperate Event Handler for each lightning input/button.
