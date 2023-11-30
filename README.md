@@ -202,3 +202,35 @@ nameHandler(event) {
 }
 
 ```
+
+## 4
+
+While using lightning-combobox, we can get the selected option value using event.detail.value, but not the label.
+
+To get the selected label, we need to use a bit of logic.
+
+**JS**
+```
+import { lightningElement } from lwc;
+
+export default class PickListLabelValueClass extends LightningElement {
+	value = 'InProgress';
+	label = 'In Progress';
+
+	get options() {
+		return [
+			{ label: 'New', value: 'new' },
+			{ label: 'In Progress', value: 'InProgress' },
+			{ label: 'Finished', value: 'Finished' }
+		];
+	}
+
+	handleChange(event) {
+		this.value =  event.detail.value;
+
+		this.indexVal = this.options.findIndex(row=>row.value==this.value);
+
+		this.label = this.options[indexVal].label;
+	}
+} 
+```
